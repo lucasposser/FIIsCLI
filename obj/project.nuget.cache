@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "voe9R2JqY7SOMR0V59zYWKjFkhgrQzBn3S8WKqZBe2FOJRJnWNdSejIF/vrXTaucPxALm68uVpl6o1VWWX1smg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\posse\\source\\repos\\FIIsCLI\\FIIsCLI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\posse\\.nuget\\packages\\htmlagilitypack\\1.11.34\\htmlagilitypack.1.11.34.nupkg.sha512"
+  ],
+  "logs": []
+}
