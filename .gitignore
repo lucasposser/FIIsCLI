@@ -1,0 +1,12 @@
+# Saída de build
+bin/
+obj/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+
+# Cache local da saída web (dados gerados, não fonte)
+web/cache/*.json
