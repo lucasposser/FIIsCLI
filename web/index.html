@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ranking de fundos imobiliários a partir da tabela do Fundamentus, com estratégias de seleção, ordenação e filtros.">
+  <meta name="color-scheme" content="light dark">
+  <title>FIIs · Ranking</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">▚</span>
+    <div>
+      <h1>FIIs <span class="brand-sub">ranking</span></h1>
+      <p class="brand-note">Fundos imobiliários · dados do Fundamentus</p>
+    </div>
+  </div>
+
+  <div class="topbar-side">
+    <p class="freshness" id="freshness" aria-live="polite">carregando…</p>
+    <button type="button" class="btn" id="refresh" title="Buscar dados novos na origem">
+      <span class="btn-icon" aria-hidden="true">⟳</span> Atualizar
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="strategies" aria-label="Estratégia">
+    <div class="pills" id="pills" role="tablist" aria-label="Estratégia de seleção"></div>
+    <label class="limit">
+      <span>Mostrar</span>
+      <select id="limit">
+        <option value="10">10</option>
+        <option value="30" selected>30</option>
+        <option value="50">50</option>
+        <option value="0">todos</option>
+      </select>
+    </label>
+  </section>
+
+  <section class="card strategy-card">
+    <div class="strategy-head">
+      <div>
+        <h2 id="strategy-name">—</h2>
+        <p class="strategy-note" id="strategy-note"></p>
+      </div>
+      <div class="kpis" id="kpis"></div>
+    </div>
+    <ol class="funnel" id="funnel" aria-label="Cortes da estratégia"></ol>
+  </section>
+
+  <section class="card table-card">
+    <div class="table-scroll">
+      <table id="table">
+        <thead>
+          <tr class="row-labels" id="row-labels"></tr>
+          <tr class="row-filters" id="row-filters"></tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <p class="table-foot" id="table-foot"></p>
+  </section>
+
+  <section class="state" id="state" hidden></section>
+</main>
+
+<footer class="sitefoot">
+  <p>
+    Screening sobre dados públicos do
+    <a href="https://fundamentus.com.br/fii_resultado.php?&amp;interface=classic" rel="noreferrer noopener" target="_blank">Fundamentus</a>.
+    Não é recomendação de investimento — nenhum destes cortes enxerga qualidade de crédito, contrato de locação ou duration.
+  </p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

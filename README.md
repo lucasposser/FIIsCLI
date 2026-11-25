@@ -32,6 +32,7 @@ dotnet publish -c Release -r win-x64 --self-contained -p:PublishSingleFile=true
 | `FII.cs`                 | O record com uma linha da tabela.                           |
 | `FundamentusScraper.cs`  | Download, mapeamento das colunas e parsing numérico pt-BR.  |
 | `Program.cs`             | Argumentos, estratégia de ranking e impressão.              |
+| `web/`                   | Saída web: SPA + backend PHP ([web/README.md](web/README.md)). |
 
 ## Estratégias
 
@@ -77,6 +78,24 @@ contra o outlier que dominaria uma média ponderada. Desempate pela liquidez.
 
 A liquidez é de longe o corte mais restritivo — sozinha elimina 88% da tabela.
 
+
+## Saída web
+
+`web/` traz a mesma leitura e as mesmas estratégias numa SPA: tabela ordenável,
+filtros no cabeçalho, painel mostrando quanto cada corte elimina e tema
+claro/escuro. Sem banco, sem Composer, sem build — roda em qualquer hospedagem
+PHP compartilhada.
+
+O PHP só busca o Fundamentus, normaliza e devolve JSON com cache em arquivo (o
+navegador não consegue buscar direto, a origem não manda CORS); as estratégias
+rodam no cliente, então trocar de estratégia é instantâneo.
+
+`web/assets/app.js` é porte direto de `Program.cs`, e `web/lib/Fundamentus.php`
+de `FundamentusScraper.cs`. **Mexeu num critério? Mexa nos dois lugares.** As
+implementações foram conferidas lado a lado sobre os mesmos dados: mesmo funil,
+mesmo top 10 nas duas estratégias e as mesmas marcas `[!]`.
+
+Deploy e detalhes em [web/README.md](web/README.md).
 
 ## O que mudou em relação ao binário original
 
